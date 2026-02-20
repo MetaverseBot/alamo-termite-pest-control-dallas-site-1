@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+:root {
+  --surface: #f0f9ff;
+  --ink: #0c4a6e;
+  --cta: #f97316;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body), "Work Sans", sans-serif;
+  background: radial-gradient(circle at top right, #e0f2fe 0%, var(--surface) 35%, #f8fafc 100%);
+  color: var(--ink);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading), "Outfit", sans-serif;
+}
+
+a,
+button,
+input,
+select,
+textarea {
+  transition-duration: 200ms;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #0284c7;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
