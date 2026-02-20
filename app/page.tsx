@@ -178,7 +178,38 @@ export default function LandingPage() {
             <p className="text-lg text-blue-200">Don't just take our word for it. See why we have a {"4.9"}/5 rating from {"0"} Google reviews.</p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8" dangerouslySetInnerHTML={{ __html: "<article class="bg-blue-800/50 rounded-2xl p-8 border border-blue-700"><div class="flex gap-1 mb-4"><svg class="w-5 h-5 text-yellow-400 fill-yellow-400"></svg></div><p class="text-blue-50 mb-6 italic">"Professional, on-time, and extremely thorough. They solved our issue fast."</p><div><p class="font-bold">Local Customer</p><p class="text-sm text-blue-300">Dallas</p></div></article><article class="bg-blue-800/50 rounded-2xl p-8 border border-blue-700"><div class="flex gap-1 mb-4"><svg class="w-5 h-5 text-yellow-400 fill-yellow-400"></svg></div><p class="text-blue-50 mb-6 italic">"Great communication and fair pricing. We have used them for recurring service."</p><div><p class="font-bold">Homeowner</p><p class="text-sm text-blue-300">Plano</p></div></article><article class="bg-blue-800/50 rounded-2xl p-8 border border-blue-700"><div class="flex gap-1 mb-4"><svg class="w-5 h-5 text-yellow-400 fill-yellow-400"></svg></div><p class="text-blue-50 mb-6 italic">"Friendly technicians and excellent results. Highly recommended."</p><div><p class="font-bold">Property Manager</p><p class="text-sm text-blue-300">Richardson</p></div></article>" }} />
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                name: 'Local Customer',
+                location: 'Dallas',
+                text: 'Professional, on-time, and extremely thorough. They solved our issue fast.',
+              },
+              {
+                name: 'Homeowner',
+                location: 'Plano',
+                text: 'Great communication and fair pricing. We have used them for recurring service.',
+              },
+              {
+                name: 'Property Manager',
+                location: 'Richardson',
+                text: 'Friendly technicians and excellent results. Highly recommended.',
+              },
+            ].map((review, idx) => (
+              <article key={idx} className="bg-blue-800/50 rounded-2xl p-8 border border-blue-700">
+                <div className="flex gap-1 mb-4">
+                  {[1, 2, 3, 4, 5].map((star) => (
+                    <Star key={star} className="w-5 h-5 text-yellow-400 fill-yellow-400" />
+                  ))}
+                </div>
+                <p className="text-blue-50 mb-6 italic">"{review.text}"</p>
+                <div>
+                  <p className="font-bold">{review.name}</p>
+                  <p className="text-sm text-blue-300">{review.location}</p>
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
